@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "708727455658",
+    "project_id": "vision-53abc",
+    "storage_bucket": "vision-53abc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708727455658:android:6961180de41821d2dd75d3",
+        "android_client_info": {
+          "package_name": "com.biggy.vision"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "708727455658-8i800n1uuuibcnvp9stbg3kcerptqmrb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9jI2vDz3Pi6PQuWl1RNMeR3txPQj1jrs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "708727455658-8i800n1uuuibcnvp9stbg3kcerptqmrb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
