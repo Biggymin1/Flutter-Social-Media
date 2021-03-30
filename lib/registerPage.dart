@@ -75,6 +75,7 @@ class passwordTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      obscureText: true,
       onChanged: (text) => {password = text},
       decoration: InputDecoration(hintText: "Password", icon: Icon(Icons.lock)),
     );
@@ -191,13 +192,24 @@ class _imageAndGetImageState extends State<imageAndGetImage> {
                       ElevatedButton(onPressed: () => {changeImage()}, child: Text("Change image")),
                     ],
                   )
-                : ElevatedButton(
-                    onPressed: () => {setImage()},
-                    child: Text(
-                      "Please choose an image",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  )));
+                : Column(
+                  children: [ClipRRect(
+                      borderRadius: BorderRadius.circular(300.0),
+                      child: Container(
+                          decoration: BoxDecoration(shape: BoxShape.circle,color: Colors.lightBlue),
+                          height: 300,
+                          width: 300,
+                          child: Align(alignment: Alignment.center,child: Text("Please choose an image"),
+                          ))),
+                    ElevatedButton(
+                        onPressed: () => {setImage()},
+                        child: Text(
+                          "Please choose an image",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                  ],
+                )));
   }
 }
 

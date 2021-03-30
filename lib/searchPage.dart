@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:vision/loginPage.dart';
 import 'package:vision/main.dart';
+import 'package:vision/postDetailedPage.dart';
 import 'dart:convert' as convert;
 
 import 'package:vision/profilePage.dart';
@@ -57,6 +58,7 @@ class _searchPageState extends State<searchPage> {
         searchResult.add(ListTile(tileColor: Colors.red,title: Text(userName),onTap: () => {
           chosenUsername = userName,
           chosenId = id,
+          print("chosenUsername:${chosenUsername},chosenId:${chosenId}"),
           Navigator.push(context, new MaterialPageRoute(builder: (context) => profilePage()))
         },));
       });

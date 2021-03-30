@@ -21,7 +21,7 @@ var post3Name,post3Desc,post3Image,post3Target,post3Category;
 //explore algorithm
 exploreAlgorithm() async {
   //for the explore page. totally random stuff
-  postData = await http.get(Uri.http('${ipAddress}','/api/explore'));
+  postData = await http.get(Uri.http('${ipAddress}', '/api/explore'));
   print('data has been received in explore algorithm');
   postData = postData.body;
   // postData = postData[0];
@@ -52,7 +52,8 @@ loadPostExplore() async {
 //solve algorithm
 solveAlgorithm() async {
   //categorySpecialization is defined when logged in
-  postData = await http.get(Uri.http('${ipAddress}','/api/solve/${categorySpecialization}'));
+  postData = await http
+      .get(Uri.http('${ipAddress}', '/api/solve/${categorySpecialization}'));
   print('data has been received in solve algorithm');
   postData = postData.body;
   // postData = postData[0];
@@ -82,7 +83,6 @@ loadPostSolve() async {
 
 //following algorithm
 followingAlgorithm() async {
-
   //this algorithm is not finished (finished now lol)
 
   getFollowers() async {
@@ -92,7 +92,8 @@ followingAlgorithm() async {
     var idData;
     var idList = [];
     //print('userId: $userId'); //it works till here
-    idData = await http.get(Uri.http('${ipAddress}','/getFollowingId/${userId}')); //this return 5 id if have follower
+    idData = await http.get(Uri.http('${ipAddress}',
+        '/getFollowingId/${userId}')); //this return 5 id if have follower
     //print('idData: $idData');
 
     idData = idData.body;
@@ -105,7 +106,8 @@ followingAlgorithm() async {
 
     //there is an error it will stuck  if user have no follower
     if (idData.isEmpty == false) {
-      for (var i in idData) { //this access each json
+      for (var i in idData) {
+        //this access each json
         //print('followers ID: ${i}');
         idList.add(i['followingsId']); //this access folowings id in json
       }
@@ -117,21 +119,21 @@ followingAlgorithm() async {
     //same error happen here
     for (var i in idList) {
       //print('var I: ${i}'); //it works till here (tested)
-      var httpResponse = await http.get(Uri.http('${ipAddress}','/getFollowersUsername/${i}'));
+      var httpResponse = await http
+          .get(Uri.http('${ipAddress}', '/getFollowersUsername/${i}'));
       var httpBody = httpResponse.body;
       //print('http body: ${httpBody}');
       var httpEncoded = convert.jsonDecode(httpBody);
       //print('http encoded: ${httpEncoded}'); it works
       httpEncoded = httpEncoded[0];
-      followingUsername_forFollowingAlgorithm = httpEncoded['username'];  //this whole function is a modified version of the 1 in followers page
+      followingUsername_forFollowingAlgorithm = httpEncoded[
+          'username']; //this whole function is a modified version of the 1 in followers page
       //for now we only 1 need 1 because we gonna take that 1 user and load his post
     }
 
     //print('checkpoint 4');
     return idList;
-
   }
-
 
   //from here we just run our function
   await getFollowers(); //this will set a variable 'followingUsername_forFollowingAlgorithm' into the target username
@@ -139,8 +141,8 @@ followingAlgorithm() async {
   //print('wait for followers done');
   //print(followingUsername_forFollowingAlgorithm);
 
-
-  var followingDataAndHisPostData = await http.get(Uri.http('${ipAddress}','/profile/${followingUsername_forFollowingAlgorithm}'));
+  var followingDataAndHisPostData = await http.get(Uri.http(
+      '${ipAddress}', '/profile/${followingUsername_forFollowingAlgorithm}'));
   //reminder postData is in second query
 
   var bodyData = followingDataAndHisPostData.body;
@@ -182,24 +184,24 @@ class postFinished1 extends StatelessWidget {
   var postContact = body.post1Contact;
   var postCategory = body.post1Category;
   var postId = body.post1Id;
+  var postOwner = body.post1Owner;
   var postHasRealImage;
 
   @override
   Widget build(BuildContext context) {
-    if(postImage != 'assets/images/skateLandscape.jpg'){
+    if (postImage != 'assets/images/skateLandscape.jpg') {
       postHasRealImage = true;
-    }
-    else{
+    } else {
       postHasRealImage = false;
     }
     return InkWell(
       onTap: () => {
-        if(postHasRealImage == true){
-          chosenPostHasRealImage = true,
-        }
-        else{
-          chosenPostHasRealImage = false
-        },
+        if (postHasRealImage == true)
+          {
+            chosenPostHasRealImage = true,
+          }
+        else
+          {chosenPostHasRealImage = false},
         chosenPostName = postName,
         chosenPostDescription = postDesc,
         chosenPostImg = postImage,
@@ -222,14 +224,26 @@ class postFinished1 extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           children: [
             ClipRRect(
-              child: postHasRealImage? Container(height: 174,width: 630,child: Image.network(postImage,fit: BoxFit.fill,)) : Image.asset(postImage),
+              child: postHasRealImage
+                  ? Container(
+                      height: 174,
+                      width: 630,
+                      child: Image.network(
+                        postImage,
+                        fit: BoxFit.cover,
+                      ))
+                  : Image.asset(postImage),
               borderRadius: BorderRadius.circular(15),
             ),
-            Text(postName,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 40))
+            Align(
+              alignment: Alignment.topLeft,
+              child: Text(postName,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 40)),
+            ),
+            Align(alignment: Alignment.bottomLeft,child: Text(postOwner,style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.normal),))
           ],
         ),
       ),
@@ -245,24 +259,24 @@ class postFinished2 extends StatelessWidget {
   var postContact = body.post2Contact;
   var postCategory = body.post2Category;
   var postId = body.post2Id;
+  var postOwner = body.post2Owner;
   var postHasRealImage;
 
   @override
   Widget build(BuildContext context) {
-    if(postImage != 'assets/images/skateLandscape.jpg'){
+    if (postImage != 'assets/images/skateLandscape.jpg') {
       postHasRealImage = true;
-    }
-    else{
+    } else {
       postHasRealImage = false;
     }
     return InkWell(
       onTap: () => {
-        if(postHasRealImage == true){
-          chosenPostHasRealImage = true,
-        }
-        else{
-          chosenPostHasRealImage = false
-        },
+        if (postHasRealImage == true)
+          {
+            chosenPostHasRealImage = true,
+          }
+        else
+          {chosenPostHasRealImage = false},
         chosenPostName = postName,
         chosenPostDescription = postDesc,
         chosenPostImg = postImage,
@@ -285,14 +299,26 @@ class postFinished2 extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           children: [
             ClipRRect(
-              child: postHasRealImage? Container(height: 174,width: 630,child: Image.network(postImage,fit: BoxFit.fill,)) : Image.asset(postImage),
+              child: postHasRealImage
+                  ? Container(
+                      height: 174,
+                      width: 630,
+                      child: Image.network(
+                        postImage,
+                        fit: BoxFit.cover,
+                      ))
+                  : Image.asset(postImage),
               borderRadius: BorderRadius.circular(15),
             ),
-            Text(postName,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 40))
+            Align(
+              alignment: Alignment.topLeft,
+              child: Text(postName,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 40)),
+            ),
+            Align(alignment: Alignment.bottomLeft,child: Text(postOwner,style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.normal),))
           ],
         ),
       ),
@@ -308,26 +334,25 @@ class postFinished3 extends StatelessWidget {
   var postContact = body.post3Contact;
   var postCategory = body.post3Category;
   var postId = body.post3Id;
+  var postOwner = body.post3Owner;
   var postHasRealImage;
 
   @override
   Widget build(BuildContext context) {
-
-    if(postImage != 'assets/images/skateLandscape.jpg'){
+    if (postImage != 'assets/images/skateLandscape.jpg') {
       postHasRealImage = true;
-    }
-    else{
+    } else {
       postHasRealImage = false;
     }
 
     return InkWell(
       onTap: () => {
-        if(postHasRealImage == true){
-          chosenPostHasRealImage = true,
-        }
-        else{
-          chosenPostHasRealImage = false
-        },
+        if (postHasRealImage == true)
+          {
+            chosenPostHasRealImage = true,
+          }
+        else
+          {chosenPostHasRealImage = false},
         chosenPostName = postName,
         chosenPostDescription = postDesc,
         chosenPostImg = postImage,
@@ -350,14 +375,23 @@ class postFinished3 extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           children: [
             ClipRRect(
-              child: postHasRealImage? Container(height: 174,width: 630,child: Image.network(postImage,fit: BoxFit.fill)) : Image.asset(postImage),
+              child: postHasRealImage
+                  ? Container(
+                      height: 174,
+                      width: 630,
+                      child: Image.network(postImage, fit: BoxFit.cover))
+                  : Image.asset(postImage),
               borderRadius: BorderRadius.circular(15),
             ),
-            Text(postName,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 40))
+            Align(
+              alignment: Alignment.topLeft,
+              child: Text(postName,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 40)),
+            ),
+            Align(alignment: Alignment.bottomLeft,child: Text(postOwner,style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.normal),))
           ],
         ),
       ),

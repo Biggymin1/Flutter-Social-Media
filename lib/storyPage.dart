@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
-
-var chosenStoryName;
+import 'package:video_player/video_player.dart';
+import 'package:vision/loginPage.dart';
+import 'package:vision/main.dart';
 
 class storyPage extends StatelessWidget {
+
+  var requestLink = 'http://${ipAddress}/api/getStory/Media/${chosenStoryId}';
+  var storyController = VideoPlayerController.network('http://${ipAddress}/api/getStoryMedia/${chosenStoryId}');
+
   @override
   Widget build(BuildContext context) {
+    print("requestLink:${requestLink}");
+    storyController.initialize();
+    storyController.play();
     return Scaffold(
+      body: InkWell(onTap: () => {storyController.seekTo(Duration.zero)},child: VideoPlayer(storyController)),
       appBar: AppBar(
         title: Text(
           "Story",

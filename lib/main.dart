@@ -8,8 +8,17 @@ import 'fabChild.dart';
 import 'loginPage.dart';
 import 'searchPage.dart';
 
+/*
+Progress:
+1)don't forget to add delete old story when loading (easy but won't be done until final)
+2)Follow following button funcitionality (done)
+3)bug
+4}3d model (done)
+ */
+
 //our problem here is that our homeButton class has container that need to be in body but it also has FBA (solved)
 //that need to be in scaffold (solved)
+//userId is still null when we logged in (solved)
 
 /*
 All of the algorithm is in post.dart
@@ -27,12 +36,26 @@ but not for post
 
 */
 
+//userId has been set when logged in no need to call an api again (IMPORTANT)
+
 //this is the only ip address we uses. for other script just import from here don't make new ip address variable for organising
 //vision-biggymin.herokuapp.com is our url
-var ipAddress = '192.168.1.103:3000';
+var ipAddress = '192.168.1.110:3000';
 /*we have 2 choices localhost or heroku.
 If we use heroku just change the address to the url
 remeber that heroku is https while localhost is http*/
+
+/*
+wanIp:10.185.242.101
+staticIp:192.168.1.110
+ */
+
+//chosenStuff is at loginPage.dart
+//post 1,2,3 is in body.dart
+
+//we can't just add a widget into a list.We need to make a widget that changes its data only when created.
+
+var debugMode = false;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -51,7 +74,7 @@ class mainPage extends StatelessWidget {
         leading: Container(
             child: InkWell(
               onTap: () => {
-                chosenUsername = username,
+                chosenUsername = username,chosenId = userId,
                 Navigator.push(
                     context,
                     new MaterialPageRoute(

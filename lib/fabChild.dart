@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vision/createPostPage.dart';
-import 'notePage.dart';
 import 'myProjectPage.dart';
+import 'createStoryPage.dart';
 
 class fabChild extends StatefulWidget {
   @override
@@ -12,8 +12,8 @@ class _fabChild extends State<fabChild> {
 
   //The problem here is the touch is not detected
 
-    runNotePage(){
-      Navigator.push(context, new MaterialPageRoute(builder: (context) => notePage(),));
+    runStoryPage(){
+      Navigator.push(context, new MaterialPageRoute(builder: (context) => createStoryPage(),));
     }
 
     runProjectPage(){
@@ -72,7 +72,7 @@ class _fabChild extends State<fabChild> {
         width: 50,
         decoration:
         BoxDecoration(color: Colors.yellow, shape: BoxShape.circle),
-        child: InkWell(onTap: () => {runNotePage()},
+        child: InkWell(onTap: () => {runStoryPage()},
           child: Icon(Icons.book_sharp),
         ),
       ),

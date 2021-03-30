@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vision/loginPage.dart';
 import 'package:vision/main.dart';
 import 'package:vision/post.dart';
 import 'fabChild.dart';
@@ -15,9 +16,9 @@ double endDetection;
 
 //used for post generation
 var post1,post2,post3;
-var post1Name,post1Image,post1Desc,post1Target,post1Contact,post1Category,post1Id;
-var post2Name,post2Image,post2Desc,post2Target,post2Contact,post2Category,post2Id;
-var post3Name,post3Image,post3Desc,post3Target,post3Contact,post3Category,post3Id;
+var post1Name,post1Image,post1Desc,post1Target,post1Contact,post1Category,post1Id,post1Owner;
+var post2Name,post2Image,post2Desc,post2Target,post2Contact,post2Category,post2Id,post2Owner;
+var post3Name,post3Image,post3Desc,post3Target,post3Contact,post3Category,post3Id,post3Owner;
 
 class body extends StatefulWidget {
   @override
@@ -82,6 +83,10 @@ class _bodyState extends State<body> {
     post2Id = post2["id"]; //the backend send id data as integer
     post3Id = post3["id"];
 
+    post1Owner = post1["postOwner"];
+    post2Owner = post2["postOwner"];
+    post3Owner = post3["postOwner"];
+
     // print(post3Image);
 
     //filtering image
@@ -140,7 +145,9 @@ class _bodyState extends State<body> {
   @override
   Widget build(BuildContext context) {
 
-    if(itemInbody == null){
+    print("userId:${userId}");
+
+    if(itemInbody.isEmpty == true){
       buildPostWidget();
     }
 
@@ -200,4 +207,11 @@ class _bodyState extends State<body> {
       ], //a reminder that everything inside this page is inside a collumn
     );
   } //this is from build
+}
+
+class scrollGuide extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Container(color: Colors.lightBlueAccent,child: Text('Scroll down to Start exploring'),);
+  }
 }
