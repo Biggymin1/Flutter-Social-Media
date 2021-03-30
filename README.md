@@ -1,16 +1,26 @@
-# vision
+# Flutter social media
 
-App where people all around the world can work towards 1 goal and be a type 1 species
+Social media app called Vision that was made using flutter (front-end) and NodeJs (back-end)
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+video preview: https://www.youtube.com/watch?v=qF1LZkwebsM
 
-A few resources to get you started if this is your first Flutter project:
+The app frontend was fully made using flutter
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Notes:
+Some of the features were not shown in this video due to a bug where the page won't refresh when receiving new data
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+All of the system such as adding project to saved, followers system, stories system were working perfectly in the backend but we're not finished in the front end
+
+The colored button in the main page is 3 different algorithm for recommending the best post to the user
+
+List of features:
+1) Stories
+2) Followers System
+3) Posting
+4) Recommendation Algorithm
+
+More feature such as virtual high comparison might be available in the future
+
+Ps: this is my first web project don't be to harsh please lol
