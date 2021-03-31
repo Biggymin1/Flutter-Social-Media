@@ -40,14 +40,14 @@ but not for post
 
 //this is the only ip address we uses. for other script just import from here don't make new ip address variable for organising
 //vision-biggymin.herokuapp.com is our url
-var ipAddress = '192.168.1.110:3000';
+var ipAddress = 'xxx.xxx.xxx.xxx:3000';
 /*we have 2 choices localhost or heroku.
 If we use heroku just change the address to the url
 remeber that heroku is https while localhost is http*/
 
 /*
-wanIp:10.185.242.101
-staticIp:192.168.1.110
+wanIp:xxx.xxx.xxx.xxx
+staticIp:xxx.xxx.xxx.xxx
  */
 
 //chosenStuff is at loginPage.dart
