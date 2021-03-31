@@ -2,6 +2,14 @@
 
 Social media app called Vision that was made using flutter (front-end) and NodeJs (back-end)
 
+<p float="left">
+  <img src="/previewImages/login.jpg" width="100" />
+  <img src="/previewImages/story.jpg" width="100" /> 
+  <img src="/previewImages/detailed.jpg" width="100" />
+  <img src="/previewImages/profile.jpg" width="100" />
+  <img src="/previewImages/savedProject.jpg" width="100" />
+</p>
+
 ## Getting Started
 
 video preview: https://www.youtube.com/watch?v=qF1LZkwebsM
