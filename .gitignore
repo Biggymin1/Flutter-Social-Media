@@ -39,8 +39,6 @@ captures/
 #android and ios and files
 android/
 ios/
-*.png
-*.jpg
 
 # IntelliJ
 *.iml
