@@ -40,6 +40,7 @@ captures/
 android/
 ios/
 *.png
+*.jpg
 
 # IntelliJ
 *.iml
