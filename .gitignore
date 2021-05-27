@@ -37,8 +37,8 @@ proguard/
 captures/
 
 #android and ios
-.android/
-.ios/
+/android/
+/ios/
 
 # IntelliJ
 *.iml
