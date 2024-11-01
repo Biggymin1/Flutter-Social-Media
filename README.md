@@ -1,16 +1,34 @@
-# project
+# Flutter social media
 
-A new Flutter project.
+Social media app called Vision that was made using flutter (front-end) and NodeJs (back-end)
+
+<p float="left">
+  <img src="/previewImages/login.jpg" width="100" />
+  <img src="/previewImages/story.jpg" width="100" /> 
+  <img src="/previewImages/detailed.jpg" width="100" />
+  <img src="/previewImages/profile.jpg" width="100" />
+  <img src="/previewImages/savedProject.jpg" width="100" />
+</p>
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+video preview: https://www.youtube.com/watch?v=qF1LZkwebsM
 
-A few resources to get you started if this is your first Flutter project:
+The app frontend was fully made using flutter
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Notes:
+Some of the features were not shown in this video due to a bug where the page won't refresh when receiving new data
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+All of the system such as adding project to saved, followers system, stories system were working perfectly in the backend but we're not finished in the front end
+
+The colored button in the main page is 3 different algorithm for recommending the best post to the user
+
+List of features:
+1) Stories
+2) Followers System
+3) Posting
+4) Recommendation Algorithm
+
+More feature such as virtual high comparison might be available in the future
+
+Ps: this is my first web project don't be to harsh please lol
