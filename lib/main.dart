@@ -40,7 +40,7 @@ but not for post
 
 //this is the only ip address we uses. for other script just import from here don't make new ip address variable for organising
 //vision-biggymin.herokuapp.com is our url
-var ipAddress = 'xxx.xxx.xxx.xxx:3000';
+var ipAddress = 'localhost:3000';
 /*we have 2 choices localhost or heroku.
 If we use heroku just change the address to the url
 remeber that heroku is https while localhost is http*/
@@ -55,7 +55,7 @@ staticIp:xxx.xxx.xxx.xxx
 
 //we can't just add a widget into a list.We need to make a widget that changes its data only when created.
 
-var debugMode = false;
+var debugMode = true;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
